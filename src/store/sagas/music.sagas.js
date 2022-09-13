@@ -7,7 +7,6 @@ import {
 import { searchMusic } from '../../libs/search.api'
 
 export function* getMusicListSaga({payload}) {
-    console.log(payload)
     try {
         const result = yield call(searchMusic, payload)
         yield put(getMusicListSuccess(result))

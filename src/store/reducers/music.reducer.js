@@ -2,8 +2,9 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     data: null,
-    currentPage: 1,
-    totalPage: 0
+    inProgress: false,
+    error: '',
+    totalData: 0
 }
 
 const musicReducerSlice = createSlice({
@@ -20,7 +21,8 @@ const musicReducerSlice = createSlice({
         getMusicListSuccess(state, {payload}) {
             return {
                 ...state,
-                data: payload,
+                data: payload.results,
+                inProgress: false,
                 error: ''
             }
         },
